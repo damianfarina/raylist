@@ -37,7 +37,7 @@ class CopyMusic
   private
   def safe_name(filename)
     converted =filename.encode Encoding::UTF_8
-    safe = converted.to_s.gsub(/[^a-zA-Z0-9]/, '_')
+    safe = converted.to_s.gsub(/[^a-zA-Z0-9]/, '_') rescue nil
     if safe.nil?
       return filename
     else
